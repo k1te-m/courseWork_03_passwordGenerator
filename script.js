@@ -8,7 +8,7 @@ var confirmSpecial;
 // Password Values
 
 //Special Characters
-character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+character = ["!", "#", "$", "%", "&", "'", "(",")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{","|","}", "~"];
 
 //Numbers
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -80,13 +80,26 @@ function generatePassword(){
   else if (confirmLower) { // 1 True Confirm
     userChoices = alpha;
   } else if (confirmUpper) {
-    userChoices = alpha2;
+    userChoices = uAlpha.concat(alpha2);
   } else if (confirmNum) {
     userChoices = number;
   } else if (confirmSpecial) {
     userChoices = character;
   }
   
+  var password = [];
+
+  for (var i=0; i<howLong; i++) {
+    var userPick = userChoices[Math.floor(Math.random()* userChoices.length)];
+    password.push(userPick);
+  }
+  var ps = password.join("");
+  userFinal(ps);
+  return ps;
+};
+
+function userFinal(ps) {
+  document.getElementById("password").textContent = ps;
 };
 
 
