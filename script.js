@@ -8,21 +8,80 @@ var confirmSpecial;
 // Password Values
 
 //Special Characters
-character = ["!", "#", "$", "%", "&", "'", "(",")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{","|","}", "~"];
+character = [
+  "!",
+  "#",
+  "$",
+  "%",
+  "&",
+  "'",
+  "(",
+  ")",
+  "*",
+  "+",
+  ",",
+  "-",
+  ".",
+  "/",
+  ":",
+  ";",
+  "<",
+  "=",
+  ">",
+  "?",
+  "@",
+  "[",
+  "\\",
+  "]",
+  "^",
+  "_",
+  "`",
+  "{",
+  "|",
+  "}",
+  "~",
+];
 
 //Numbers
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 //Alphabetical characters
-alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+alpha = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 
 //For Uppercase conversions
 uAlpha = [];
 
 //Convert to Uppercase
-var toUpper = function(x) {
+var toUpper = function (x) {
   return x.toUpperCase();
-}
+};
 
 //Uppercase conversion variable
 alpha2 = alpha.map(toUpper);
@@ -30,10 +89,10 @@ alpha2 = alpha.map(toUpper);
 //User Choices
 var userChoices;
 
-
-
-function generatePassword(){
-  howLong=parseInt(prompt("Please specify your password length (8-128 Characters)."));
+function generatePassword() {
+  howLong = parseInt(
+    prompt("Please specify your password length (8-128 Characters).")
+  );
   if (!howLong) {
     alert("Must specify length.");
   } else if (howLong < 8 || howLong > 128) {
@@ -43,17 +102,15 @@ function generatePassword(){
     confirmUpper = confirm("Use uppercase letters?");
     confirmNum = confirm("Use numbers?");
     confirmSpecial = confirm("Use special characters?");
-  };
+  }
 
-
-  
   if (!confirmLower && !confirmUpper && !confirmNum && !confirmSpecial) {
     alert("You must choose at least one criteria!");
-  } else if (confirmLower && confirmUpper &&confirmNum && confirmSpecial){ // All True Confirms
+  } else if (confirmLower && confirmUpper && confirmNum && confirmSpecial) {
+    // All True Confirms
     userChoices = alpha.concat(alpha2, number, character);
-  } 
-  
-  else if (confirmLower && confirmUpper && confirmNum) { // 3 True Confirms
+  } else if (confirmLower && confirmUpper && confirmNum) {
+    // 3 True Confirms
     userChoices = alpha.concat(alpha2, number);
   } else if (confirmLower && confirmUpper && confirmSpecial) {
     userChoices = alpha.concat(alpha2, character);
@@ -61,9 +118,8 @@ function generatePassword(){
     userChoices = alpha.concat(number, character);
   } else if (confirmUpper && confirmNum && confirmSpecial) {
     userChoices = alpha2.concat(number, character);
-  } 
-  
-  else if (confirmSpecial && confirmLower) { // 2 True Confirms
+  } else if (confirmSpecial && confirmLower) {
+    // 2 True Confirms
     userChoices = character.concat(alpha);
   } else if (confirmSpecial && confirmUpper) {
     userChoices = character.concat(alpha2);
@@ -75,9 +131,8 @@ function generatePassword(){
     userChoices = alpha.concat(nubmer);
   } else if (confirmUpper && confirmNum) {
     userChoices = alpha2.concat(number);
-  } 
-  
-  else if (confirmLower) { // 1 True Confirm
+  } else if (confirmLower) {
+    // 1 True Confirm
     userChoices = alpha;
   } else if (confirmUpper) {
     userChoices = uAlpha.concat(alpha2);
@@ -86,26 +141,21 @@ function generatePassword(){
   } else if (confirmSpecial) {
     userChoices = character;
   }
-  
+
   var password = [];
 
-  for (var i=0; i<howLong; i++) {
-    var userPick = userChoices[Math.floor(Math.random()* userChoices.length)];
+  for (var i = 0; i < howLong; i++) {
+    var userPick = userChoices[Math.floor(Math.random() * userChoices.length)];
     password.push(userPick);
   }
   var ps = password.join("");
   userFinal(ps);
   return ps;
-};
+}
 
 function userFinal(ps) {
   document.getElementById("password").textContent = ps;
-};
-
-
-
-  
-  
+}
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -116,7 +166,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
