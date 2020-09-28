@@ -2,7 +2,7 @@
 
 https://k1te-m.github.io/courseWork_03_passwordGenerator/
 
-![Finished Product Screenshot](finalscreenshot.png)
+![Finished Product Screenshot](./finalscreenshot.png)
 
 ## User Story
 
