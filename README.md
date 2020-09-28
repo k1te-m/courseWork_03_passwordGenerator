@@ -6,7 +6,6 @@ https://k1te-m.github.io/courseWork_03_passwordGenerator/
 
 ## Description
 
-```
 The javascript code written for this project generates a password using user specifications for several different criteria including length (between 8-128 characters), user of lowercase letters, uppercase letters, numbers, or special characters. 
 
 The code first establishes the variables to be used later for these user specifications, followed by several arrays containing the different characters and numbers to be used. A blank array is established for the uppercase letters along with a function to return uppercase values and a new variable mappinging this function into the lowercase letter array for conversion later. 
@@ -20,9 +19,6 @@ If no criteria is chosen, the user will be alerted that at least one must be cho
 The for loop uses a condition set to the length of the user decision for how long their password will be. The new variable userPick is estabished and set equal the the userChoices array established by the prior if/else statements. The Math.floor and Math.random methods are used to randomly choose characters from the userChoices array and these values are then pushed into the empty password array established right above the loop. 
 
 Finally a new variable ps or "password string" is established that utilizes the .join method converting the password array to a string. The userFinal funcition then pushes this string through to the element with an ID of "password" as established in the html file. 
-
-
-```
 
 ## User Story
 
