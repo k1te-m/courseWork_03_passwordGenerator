@@ -5,8 +5,6 @@ var confirmUpper;
 var confirmNum;
 var confirmSpecial;
 
-// Password Values
-
 //Special Characters
 character = [
   "!",
@@ -109,8 +107,8 @@ function generatePassword() {
   } else if (confirmLower && confirmUpper && confirmNum && confirmSpecial) {
     // All True Confirms
     userChoices = alpha.concat(alpha2, number, character);
-  } else if (confirmLower && confirmUpper && confirmNum) {
     // 3 True Confirms
+  } else if (confirmLower && confirmUpper && confirmNum) {
     userChoices = alpha.concat(alpha2, number);
   } else if (confirmLower && confirmUpper && confirmSpecial) {
     userChoices = alpha.concat(alpha2, character);
@@ -118,8 +116,8 @@ function generatePassword() {
     userChoices = alpha.concat(number, character);
   } else if (confirmUpper && confirmNum && confirmSpecial) {
     userChoices = alpha2.concat(number, character);
-  } else if (confirmSpecial && confirmLower) {
     // 2 True Confirms
+  } else if (confirmSpecial && confirmLower) {
     userChoices = character.concat(alpha);
   } else if (confirmSpecial && confirmUpper) {
     userChoices = character.concat(alpha2);
@@ -131,8 +129,8 @@ function generatePassword() {
     userChoices = alpha.concat(nubmer);
   } else if (confirmUpper && confirmNum) {
     userChoices = alpha2.concat(number);
+      // 1 True Confirm
   } else if (confirmLower) {
-    // 1 True Confirm
     userChoices = alpha;
   } else if (confirmUpper) {
     userChoices = uAlpha.concat(alpha2);
